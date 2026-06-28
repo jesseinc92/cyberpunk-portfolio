@@ -1,0 +1,26 @@
+body {
+    height: 100dvh;
+    position: relative;
+}
+
+.cyberscape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.cyber-ui-wrapper {
+    position: absolute;
+    inset: 0;
+}
+
+.portfolio-copy-wrapper {
+    width: 100%;
+    position: absolute;
+    display: none;
+}
+
+.cyber-ui-wrapper--blur {
+    transform: scale(0.75);
+    filter: blur(10px);
+}
