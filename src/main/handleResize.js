@@ -3,6 +3,7 @@ export default function resizeCanvas({ canvas, ctx }) {
 
     canvas.width = canvas.clientWidth * dpr
     canvas.height = canvas.clientHeight * dpr
+    canvas.dataset.dpr = dpr
 
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 }

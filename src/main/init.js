@@ -1,59 +1,58 @@
-const cyberUIConfig = [
-    {
-        title: 'Config',
-        body: 'hlah',
-        x: .35,
-        y: .50
-    },
-    {
-        title: 'Env',
-        body: 'VANTA protocol engaged.',
-        x: .10,
-        y: .20
-    },
-    {
-        title: '/user/bin/001.fl',
-        body: 'Arr::[TRACE] signal drift detected in sector 4,[TRACE] amplifying beacon frequency,[TRACE] decoding fragmented packet stream,[WARN] partial data corruption detected,[RECOVER] reconstructing payload from redundancy layer,[OK] message integrity restored',
-        x: .75,
-        y: .30
-    },
-    {
-        title: '/user/lib/lcars/123-2356.fl',
-        body: 'Arr::latency: 12ms,drift correction active',
-        x: .40,
-        y: .75
-    },
-] // x/y percentage values from 0 to 1
+
+/**
+ * SYSTEM STATUS: NOMINAL
+LINK STABLE
+UPLINK SYNCHRONIZED
+NEURAL CACHE: WARM
+SIGNAL QUALITY: HIGH
+DATA STREAM: ACTIVE
+SECURITY LAYER: ENGAGED
+FIREWALL: ONLINE
+NODE HEALTH: OPTIMAL
+ENERGY FLOW: STABLE
+
+AUTH REQUIRED
+ACCESS GRANTED
+ACCESS DENIED
+HANDSHAKE COMPLETE
+RETRYING CONNECTION...
+SYNC COMPLETE
+PATCH APPLIED
+UPDATE AVAILABLE
+PROCESSING...
+QUEUE EMPTY
+
+GRID ONLINE
+SUBSYSTEM READY
+LATENCY LOW
+PACKET LOSS: 0.02%
+OVERRIDE ACTIVE
+SAFE MODE ENABLED
+TRACE IN PROGRESS
+SCAN COMPLETE
+
+[00:14:22] INIT: boot sequence engaged
+[00:14:23] CORE: stabilizing quantum stack
+[00:14:25] NET: establishing encrypted uplink
+[00:14:28] NODE-7: handshake successful
+[00:14:31] SYS: anomaly threshold within limits
+[00:14:33] CACHE: memory lattice synchronized
+[00:14:36] STATUS: all systems nominal
+
+[SYS] reconnecting to distributed mesh...
+[NET] routing through fallback nodes
+[SEC] intrusion signature detected (false positive probability: 0.92)
+[SEC] isolating segment /theta-9
+[AI] recalibrating predictive model
+[OK] system integrity restored
+ * 
+ */
+
 
 window.addEventListener('DOMContentLoaded', () => {
-    cyberSetup()
+    draw()
 })
 
-function cyberSetup() {
-    const cyberWrapper = document.querySelector('.cyber-ui-wrapper')
-    const size = {
-        width: cyberWrapper.getBoundingClientRect().width,
-        height: cyberWrapper.getBoundingClientRect().height
-    }
-
-    /** Create UI Terminals */
-    for (let c of cyberUIConfig) {        
-        cyberWrapper.append(
-            createCyberUI(c, size, "reflection"),
-            createCyberUI(c, size, "main")
-        )
-    }
-
-    // setTimeout(() => cyberWrapper.classList.add('cyber-ui-wrapper--blur'), 2000);
-}
-
-function createCyberUI(c, size, mode) {
-    const newEl = document.createElement('cyber-ui')
-    newEl.setAttribute('title', c.title)
-    newEl.setAttribute('body', c.body)
-    newEl.setAttribute('x', c.x * size.width)
-    newEl.setAttribute('y', c.y * size.height)
-    newEl.setAttribute('main', mode)
-
-    return newEl
+function draw() {
+    
 }

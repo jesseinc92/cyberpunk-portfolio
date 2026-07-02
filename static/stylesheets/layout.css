@@ -1,26 +1,35 @@
 body {
     height: 100dvh;
     position: relative;
+    overscroll-behavior: none;
 }
 
-.cyberscape {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.cyber-ui-wrapper {
-    position: absolute;
+/* .screen-filter {
+    position: fixed;
     inset: 0;
 }
-
-.portfolio-copy-wrapper {
-    width: 100%;
+.screen-filter::after {
+    content: "";
     position: absolute;
-    display: none;
-}
+    inset: -2px;
+    pointer-events: none;
 
-.cyber-ui-wrapper--blur {
-    transform: scale(0.75);
-    filter: blur(10px);
+    background:
+        radial-gradient(circle at center,
+        transparent 65%,
+        rgba(0,0,0,.28) 100%);
+
+    box-shadow:
+        inset 0 0 80px rgba(0,255,120,.05),
+        inset 0 0 120px rgba(255,50,50,.03),
+        inset 0 0 140px rgba(50,120,255,.04);
+
+    mix-blend-mode: screen;
+} */
+
+.cyberscape {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    inset: 0;
 }

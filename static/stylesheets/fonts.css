@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Toxigenesis';
-    src: url('../fonts/toxigenesis\ bd.otf');
+    font-family: 'Nerdropol';
+    src: url('../fonts/nerdropol.otf') format("opentype");
 }
 
 * {
@@ -9,5 +9,9 @@
 }
 
 h1, h2, h3, h4, b, .emphasis {
-    font-family: 'Toxigenesis', Arial, Helvetica, sans-serif;
+    font-family: 'Nerdropol', Arial, sans-serif;
+}
+
+canvas {
+    font-family: 'Nerdropol';
 }
