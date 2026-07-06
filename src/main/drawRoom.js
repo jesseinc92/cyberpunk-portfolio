@@ -46,7 +46,7 @@ export default function drawRoom({ renderer, canvas, ctx }) {
     const roomContents = [
         [[], ['room_two', 'door'], [], [], [], []],
         [[], [], [], ['room_three', 'sofa-left'] ,['room_three', 'sofa-right'], []],
-        [[], [], [], [] ,[], []],
+        [['ruin', 'dead-machine'], ['ruin', 'circuit-junk'], [], [] ,[], []],
         [[], [], [], ['room_two', 'fridge'] ,['room_two', 'sink'], ['room_two', 'shelf']],
         [['room_three', 'dining-left'], ['room_three', 'dining-right'], [], [] ,[], []],
         [[], [], [], [] ,[], []],

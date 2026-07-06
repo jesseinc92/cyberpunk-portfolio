@@ -26,5 +26,12 @@ export default {
             { name: 'sofa-left', x: 4, y: 6, offset: [0, -15] },
             { name: 'sofa-right', x: 5, y: 6, offset: [0, -15] }
         ]
+    },
+    ruin: {
+        tile_size: 96,
+        sprites: [
+            { name: 'dead-machine', x: 7, y: 3, offset: [0, -15] },
+            { name: 'circuit-junk', x: 7, y: 7, offset: [-30, 0] }
+        ]
     }
 }
