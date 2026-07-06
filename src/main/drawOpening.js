@@ -1,12 +1,12 @@
+import drawBackground from "./drawBackground.js"
 import drawHero from "./drawHero.js"
-import drawSunsetBackground from "./drawSunsetBackground.js"
 
 export default async function drawOpening({ time, renderer, canvas, ctx }) {
     /**
      * Color background/sky
      */
     
-    renderer.addLayer(drawSunsetBackground())
+    renderer.addLayer(drawBackground({ color: 'orange' }))
     
     /**
      * Draw masks
@@ -14,13 +14,13 @@ export default async function drawOpening({ time, renderer, canvas, ctx }) {
 
     let colorValue = 0
     const colorMap = [
+        '#9d5751',
         '#9e5782',
         '#520c46',
-        // '#9d5751'
     ]
 
     try {
-        for (let layer of renderer.getAssets()) {
+        for (let layer of renderer.getAssets().filter(a => a.meta === 'opening' )) {
             ctx.save()
 
             const tick = time / 1000
@@ -37,8 +37,8 @@ export default async function drawOpening({ time, renderer, canvas, ctx }) {
                 posR = { x: 0, y: 0 + ( ( tick - 10 ) * incrementY ) }
             }
 
-            renderer.addLayer(silhouette({ img: layer, color: colorMap[colorValue], ctx, pos: posL }))
-            renderer.addLayer(silhouette({ img: layer, color: colorMap[colorValue], ctx, pos: posR }))
+            renderer.addLayer(silhouette({ img: layer.img, color: colorMap[colorValue], ctx, pos: posL }))
+            renderer.addLayer(silhouette({ img: layer.img, color: colorMap[colorValue], ctx, pos: posR }))
 
             colorValue++
 

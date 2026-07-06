@@ -1,12 +1,20 @@
 export default class Renderer {
     constructor({ canvas, ctx }) {
-        this.canvas = canvas
-        this.ctx = ctx
+        this.canvas = canvas || null
+        this.ctx = ctx || null
 
         this.layers = []
         this.effects = []
 
         this.assets = []
+    }
+
+    setCanvas(canvas) {
+        this.canvas = canvas
+    }
+
+    setCtx(ctx) {
+        this.ctx = ctx
     }
 
     getAssets() {
