@@ -3,6 +3,10 @@ import resizeCanvas from "./handleResize.js"
 import loadFonts from "../engine/loaders/loadFonts.js"
 import loadAssets from "../engine/loaders/loadAssets.js"
 import Renderer from "../engine/renderer.js"
+import handleKeyDown from "../engine/handleKeyDown.js"
+import handleKeyUp from "../engine/handleKeyUp.js"
+import Character from "../engine/character/character.js"
+import throttle from "../utils/throttle.js"
 
 /** Handle canvas setup */
 window.addEventListener('DOMContentLoaded', async () => {
@@ -25,13 +29,27 @@ window.addEventListener('DOMContentLoaded', async () => {
             { type: 'spritesheet', path: './static/assets/interiors/room/12.png', meta: 'room_one' },
             { type: 'spritesheet', path: './static/assets/interiors/room/18.png', meta: 'room_two' },
             { type: 'spritesheet', path: './static/assets/interiors/room/19.png', meta: 'room_three' },
-            { type: 'spritesheet', path: './static/assets/misc/ruin.png', meta: 'ruin' }
+            { type: 'spritesheet', path: './static/assets/misc/ruin.png', meta: 'ruin' },
+            { type: 'spritesheet', path: './static/assets/characters/heromasc1c.png', meta: 'masc_hero' },
+            { type: 'spritesheet', path: './static/assets/characters/herofem3a.png', meta: 'fem_hero' }
         ] })
     ])
 
+    /** Register new character and movement functions */
+    const character = new Character({ renderer, atlas: 'masc_hero' })
+
+    const walkLeft = throttle(character.walkLeft(), 100)
+    const walkUp = throttle(character.walkUp(), 100)
+    const walkRight = throttle(character.walkRight(), 100)
+    const walkDown = throttle(character.walkDown(), 100)
+
+    /** Handle keyboard controls */
+    window.addEventListener("keydown", (e) => handleKeyDown({ e, walkLeft, walkUp, walkRight, walkDown }))
+    window.addEventListener("keyup", (e) => handleKeyUp({ e, character }))
+    
     /** Begin gameplay loop */
     resizeCanvas({ canvas, ctx })
-    loop({ renderer, canvas, ctx })
+    loop({ renderer, character, canvas, ctx })
 })
 
 /** Handle viewport resize */

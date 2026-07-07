@@ -2,8 +2,9 @@ import config from "../config/config.js"
 import drawOpening from "./drawOpening.js"
 import titleScreen from "./titleScreen.js"
 import drawRoom from "./drawRoom.js"
+import readSprite from "../engine/readSprite.js"
 
-export default function animationLoop({ renderer, canvas, ctx, time = 0 }) {
+export default function animationLoop({ renderer, character = null, canvas, ctx, time = 0 }) {
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
 
     // All game stuff here
@@ -19,7 +20,8 @@ export default function animationLoop({ renderer, canvas, ctx, time = 0 }) {
 
     drawRoom({ renderer, canvas, ctx })
 
+    character.render() // Position character
     renderer.render() // Always run after all changes have been recorded and ready for draw
 
-    requestAnimationFrame((time) => animationLoop({ renderer, canvas, ctx, time }))
+    requestAnimationFrame((time) => animationLoop({ renderer, character, canvas, ctx, time }))
 }

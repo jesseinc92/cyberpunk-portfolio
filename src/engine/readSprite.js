@@ -39,7 +39,5 @@ export default function readSprite({ renderer, atlas, sprite, pos }) {
             0, 0,
             canvas.clientWidth, canvas.clientHeight
         )
-
-        ctx.restore()
     }
 }
