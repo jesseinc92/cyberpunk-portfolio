@@ -1,7 +1,7 @@
 import config from "../config/config.js"
 import drawOpening from "./drawOpening.js"
 import titleScreen from "./titleScreen.js"
-import drawRoom from "./drawRoom.js"
+import drawFloorPlan from "./drawFloorPlan.js"
 import readSprite from "../engine/readSprite.js"
 
 export default function animationLoop({ renderer, character = null, canvas, ctx, time = 0 }) {
@@ -18,7 +18,14 @@ export default function animationLoop({ renderer, character = null, canvas, ctx,
     //     titleScreen({ renderer, canvas, ctx })
     // }
 
-    drawRoom({ renderer, canvas, ctx })
+    drawFloorPlan({ 
+        renderer, 
+        character, 
+        canvas, 
+        ctx,
+        shell: config.bedroom.shell, //config.living_room.shell,
+        contents: config.bedroom.contents, // config.living_room.contents
+    })
 
     character.render() // Position character
     renderer.render() // Always run after all changes have been recorded and ready for draw

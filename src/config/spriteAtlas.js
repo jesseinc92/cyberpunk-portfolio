@@ -16,6 +16,8 @@ export default {
             { name: 'fridge', x: 3, y: 4, offset: [0, 24] },
             { name: 'sink', x: 4, y: 5, offset: [0, 24] },
             { name: 'shelf', x: 6, y: 0, offset: [0, 24] },
+            { name: 'bed', x: 7, y: 2 },
+            { name: 'circuit-floor', x: 7, y: 6 }
         ]
     },
     room_three: {
@@ -24,7 +26,22 @@ export default {
             { name: 'dining-left', x: 4, y: 7, offset: [0, -15] },
             { name: 'dining-right', x: 5, y: 7, offset: [0, -15] },
             { name: 'sofa-left', x: 4, y: 6, offset: [0, -15] },
-            { name: 'sofa-right', x: 5, y: 6, offset: [0, -15] }
+            { name: 'sofa-right', x: 5, y: 6, offset: [0, -15] },
+        ]
+    },
+    room_four: {
+        tile_size: 96,
+        sprites: [
+            { name: 'servers', x: 2, y: 7, offset: [0, -60] }
+        ]
+    },
+    room_five: {
+        tile_size: 96,
+        sprites: [
+            { name: 'desk-ul', x: 0, y: 6, offset: [0, -48] },
+            { name: 'desk-ur', x: 1, y: 6, offset: [0, -48] },
+            { name: 'desk-ll', x: 0, y: 7, offset: [0, -48] },
+            { name: 'desk-lr', x: 1, y: 7, offset: [0, -48] },
         ]
     },
     ruin: {
