@@ -1,13 +1,17 @@
+import config from "../config/config.js"
+import state from "../config/state.js"
+import setDprOnDupeCanvas from "../utils/setDprOnDupeCanvas.js"
 import drawBackground from "./drawBackground.js"
 import drawHero from "./drawHero.js"
+import drawImage from "../engine/drawImage.js"
 
 export default async function drawOpening({ time, renderer, canvas, ctx }) {
     /**
      * Color background/sky
      */
     
-    renderer.addLayer(drawBackground({ color: 'orange' }))
-    
+    renderer.addLayer(drawImage({ img: state.openingBg }))
+
     /**
      * Draw masks
      */
@@ -24,17 +28,17 @@ export default async function drawOpening({ time, renderer, canvas, ctx }) {
             ctx.save()
 
             const tick = time / 1000
-            const incrementX = canvas.clientWidth / 10
-            const incrementY = canvas.clientHeight / 5
+            const incrementX = canvas.clientWidth / 8
+            const incrementY = canvas.clientHeight / 3
 
             let posL = {}
             let posR = {}
-            if (time < 10000) {
+            if (time < 8000) {
                 posL = { x: 0 - ( tick * incrementX ), y: 0 }
                 posR = { x: canvas.clientWidth - ( tick * incrementX ), y: 0 }
             } else {
                 posL = { x: -canvas.clientWidth, y: 0 }
-                posR = { x: 0, y: 0 + ( ( tick - 10 ) * incrementY ) }
+                posR = { x: 0, y: 0 + ( ( tick - 8 ) * incrementY ) }
             }
 
             renderer.addLayer(silhouette({ img: layer.img, color: colorMap[colorValue], ctx, pos: posL }))
@@ -48,26 +52,14 @@ export default async function drawOpening({ time, renderer, canvas, ctx }) {
         console.error('1 or more images failed to load: ', err)
     }
 
-    if (time > 12000) renderer.addLayer(drawHero({ time, canvas, ctx }))
+    if (time > 11000) renderer.addLayer(drawHero({ time, canvas, ctx }))
 }
 
 function silhouette({ img, color, pos = { x: 0, y: 0 } }) {
     return (ctx) => {
-        const { canvas } = ctx
+        const { canvas, temp, tctx } = setDprOnDupeCanvas(ctx)
     
-        const temp = document.createElement('canvas')
-        const tctx = temp.getContext('2d')
-    
-        /** Copy DPR setting from main canvas */
-        const dpr = Number(canvas.dataset.dpr);
-    
-        temp.width = canvas.clientWidth * dpr
-        temp.height = canvas.clientHeight * dpr
-    
-        tctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-        /**  */
-    
-        tctx.drawImage(img, 0, 0, canvas.clientWidth, canvas.clientHeight)
+        tctx.drawImage(img, 0, canvas.clientHeight / 3, canvas.clientWidth, canvas.clientHeight)
     
         tctx.globalCompositeOperation = 'source-in'
         tctx.fillStyle = color

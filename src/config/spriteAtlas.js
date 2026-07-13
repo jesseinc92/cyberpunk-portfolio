@@ -1,88 +1,141 @@
 export default {
     room_one: {
-        tile_size: 96,
         sprites: [
-            { name: 'floor',  x: 4, y: 2 },
-            { name: 'window-1', x: 6, y: 0 },
-            { name: 'window-2', x: 7, y: 0 },
+            {
+                name: 'table',
+                x: 384,
+                y: 528,
+                w: 144,
+                h: 96,
+                anchor: [0, -20]
+            }
         ]
     },
     room_two: {
-        tile_size: 96,
         sprites: [
-            { name: 'wall', x: 1, y: 0 },
-            { name: 'door', x: 5, y: 4 },
-            { name: 'computer', x: 3, y: 1.5},
-            { name: 'fridge', x: 3, y: 4, offset: [0, 24] },
-            { name: 'sink', x: 4, y: 5, offset: [0, 24] },
-            { name: 'shelf', x: 6, y: 0, offset: [0, 24] },
+            {
+                name: 'door',
+                x: 384,
+                y: 384,
+                w: 96,
+                h: 96
+            },
+            {
+                name: 'computer',
+                anchor: [0, 24]
+            },
+            {
+                name: 'fridge',
+                x: 288,
+                y: 384,
+                w: 96,
+                h: 96,
+                anchor: [15, 24]
+            },
+            {
+                name: 'sink',
+                x: 384,
+                y: 480,
+                w: 96,
+                h: 96,
+                anchor: [0, 24]
+            },
+            {
+                name: 'shelf',
+                x: 576,
+                y: 0,
+                w: 96,
+                h: 96,
+                anchor: [0, 24]
+            },
             { name: 'bed', x: 7, y: 2 },
-            { name: 'circuit-floor', x: 7, y: 6 }
+            { name: 'desk', x: 1, y: 1.5, anchor: [0, 35] }
         ]
     },
     room_three: {
-        tile_size: 96,
         sprites: [
-            { name: 'dining-left', x: 4, y: 7, offset: [0, -15] },
-            { name: 'dining-right', x: 5, y: 7, offset: [0, -15] },
-            { name: 'sofa-left', x: 4, y: 6, offset: [0, -15] },
-            { name: 'sofa-right', x: 5, y: 6, offset: [0, -15] },
+            {
+                name: 'dining',
+                x: 384,
+                y: 672,
+                w: 192,
+                h: 96,
+                anchor: [0, -20]
+            },
+            {
+                name: 'sofa',
+                x: 384,
+                y: 576,
+                w: 144,
+                h: 96,
+                anchor: [0, -15]
+            },
+            {
+                name: 'sofa-table',
+                x: 336,
+                y: 576,
+                w: 48,
+                h: 96,
+                anchor: [0, -15]
+            },
+            { name: 'fish-tank', x: 1.5, y: 3 },
         ]
     },
     room_four: {
-        tile_size: 96,
         sprites: [
-            { name: 'servers', x: 2, y: 7, offset: [0, -60] }
-        ]
-    },
-    room_five: {
-        tile_size: 96,
-        sprites: [
-            { name: 'desk-ul', x: 0, y: 6, offset: [0, -48] },
-            { name: 'desk-ur', x: 1, y: 6, offset: [0, -48] },
-            { name: 'desk-ll', x: 0, y: 7, offset: [0, -48] },
-            { name: 'desk-lr', x: 1, y: 7, offset: [0, -48] },
+            { name: 'servers', x: 2, y: 7, anchor: [0, -60] }
         ]
     },
     ruin: {
-        tile_size: 96,
         sprites: [
-            { name: 'dead-machine', x: 7, y: 3, offset: [0, -15] },
-            { name: 'circuit-junk', x: 7, y: 7, offset: [-30, 0] }
+            {
+                name: 'dead-machine',
+                x: 672,
+                y: 288,
+                w: 96,
+                h: 96,
+                anchor: [0, -15]
+            },
+            {
+                name: 'circuit-junk',
+                x: 672,
+                y: 672,
+                w: 96,
+                h: 96,
+                anchor: [-30, 0]
+            }
         ]
     },
     masc_hero: {
-        tile_size: 96,
         sprites: [
-            { name: 'down', x: 1, y: 0 },
-            { name: 'down-l', x: 0, y: 0 },
-            { name: 'down-r', x: 2, y: 0 },
-            { name: 'right', x: 1, y: 2 },
-            { name: 'right-l', x: 0, y: 2 },
-            { name: 'right-r', x: 2, y: 2 },
-            { name: 'up', x: 1, y: 3 },
-            { name: 'up-l', x: 2, y: 3 },
-            { name: 'up-r', x: 0, y: 3 },
-            { name: 'left', x: 1, y: 1 },
-            { name: 'left-l', x: 2, y: 1 },
-            { name: 'left-r', x: 0, y: 1 }
+            { name: 'down', x: 120, y: 0, w: 48, h: 96 },
+            { name: 'down-l', x: 24, y: 0, w: 48, h: 96 },
+            { name: 'down-r', x: 216, y: 0, w: 48, h: 96 },
+            { name: 'right', x: 120, y: 192, w: 48, h: 96 },
+            { name: 'right-l', x: 24, y: 192, w: 48, h: 96 },
+            { name: 'right-r', x: 216, y: 192, w: 48, h: 96},
+            { name: 'up', x: 120, y: 288, w: 48, h: 96 },
+            { name: 'up-l', x: 216, y: 288, w: 48, h: 96 },
+            { name: 'up-r', x: 24, y: 288, w: 48, h: 96 },
+            { name: 'left', x: 120, y: 96, w: 48, h: 96 },
+            { name: 'left-l', x: 216, y: 96, w: 48, h: 96 },
+            { name: 'left-r', x: 24, y: 96, w: 48, h: 96 }
         ]
     },
     fem_hero: {
-        tile_size: 96,
         sprites: [
-            { name: 'down', x: 1, y: 0 },
-            { name: 'down-l', x: 2, y: 0 },
-            { name: 'down-r', x: 0, y: 0 },
-            { name: 'right', x: 1, y: 2 },
-            { name: 'right-l', x: 0, y: 2 },
-            { name: 'right-r', x: 2, y: 2 },
-            { name: 'up', x: 1, y: 3 },
-            { name: 'up-l', x: 2, y: 3 },
-            { name: 'up-r', x: 0, y: 3 },
-            { name: 'left', x: 1, y: 1 },
-            { name: 'left-l', x: 2, y: 1 },
-            { name: 'left-r', x: 0, y: 1 }
+            { name: 'down', x: 96, y: 0, w: 96, h: 96 },
+            { name: 'down-l', x: 192, y: 0, w: 96, h: 96 },
+            { name: 'down-r', x: 0, y: 0, w: 96, h: 96 },
+            { name: 'right', x: 96, y: 192, w: 96, h: 96 },
+            { name: 'right-l', x: 0, y: 192, w: 96, h: 96 },
+            { name: 'right-r', x: 192, y: 192, w: 96, h: 96 },
+            { name: 'up', x: 96, y: 288, w: 96, h: 96 },
+            { name: 'up-l', x: 192, y: 288, w: 96, h: 96 },
+            { name: 'up-r', x: 0, y: 288, w: 96, h: 96 },
+            { name: 'left', x: 96, y: 96, w: 96, h: 96 },
+            { name: 'left-l', x: 192, y: 96, w: 96, h: 96 },
+            { name: 'left-r', x: 0, y: 96, w: 96, h: 96 }
         ]
     }
 }

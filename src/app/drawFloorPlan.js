@@ -1,5 +1,7 @@
 import drawBackground from "./drawBackground.js"
 import readSprite from "../engine/readSprite.js"
+import readTile from "../engine/readTile.js"
+import state from "../config/state.js"
 
 export default function drawFloorPlan({ 
     renderer, 
@@ -8,7 +10,8 @@ export default function drawFloorPlan({
     ctx, 
     backgroundColor,
     shell = [],
-    contents = []
+    contents = [],
+    tileSize = 96
 }) {
     /**
      * Draw black background
@@ -20,14 +23,20 @@ export default function drawFloorPlan({
      * Draw floor plan
      */
 
-    const TILE_SIZE = 96
+    const TILE_SIZE = tileSize
     const xStart = (canvas.clientWidth / 2) - ((shell.length / 2) * TILE_SIZE)
     const yStart = (canvas.clientHeight / 2) - ((shell.length / 2) * TILE_SIZE)
+
+    // Set initial position only.
+    if (!state.init) {
+        character.setPosition({ x: xStart + 96, y: yStart + 48 })
+        state.init = true
+    }
 
     for (let y = 0; y < shell.length; y++) {
         for (let x = 0; x < shell[y].length; x++) {
             if (shell[y][x].length !== 0) {
-                renderer.addLayer(readSprite({
+                renderer.addLayer(readTile({
                     renderer,
                     atlas: shell[y][x][0], 
                     sprite: shell[y][x][1], 
@@ -39,19 +48,15 @@ export default function drawFloorPlan({
 
     /**
      * Draw room content.
-     * TODO: Better handling for item offset placement
+     * TODO: Better handling for item anchor placement
      */
 
-    for (let y = 0; y < contents.length; y++) {
-        for (let x = 0; x < contents[y].length; x++) {
-            if (contents[y][x].length !== 0) {
-                renderer.addLayer(readSprite({
-                    renderer,
-                    atlas: contents[y][x][0],
-                    sprite: contents[y][x][1],
-                    pos: { x: xStart + (x * TILE_SIZE), y: yStart + (y * TILE_SIZE) }
-                }))
-            }
-        }
+    for (const { atlas, sprite, grid, colllision } of contents) {
+        renderer.addLayer(readSprite({
+            renderer,
+            atlas,
+            sprite,
+            pos: { x: xStart + (grid[0] * TILE_SIZE), y: yStart + (grid[1] * TILE_SIZE) }
+        }))
     }
 }

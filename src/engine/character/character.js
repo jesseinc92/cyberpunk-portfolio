@@ -13,6 +13,11 @@ export default class Character {
         this.walkIdx = 0
     }
 
+    setPosition({ x, y }) {
+        this.pos.x = x
+        this.pos.y = y
+    }
+
     walkRight(e) {
         return () => {
             this.sprite = ['right-l', 'right', 'right-r', 'right'].at(this.walkIdx)

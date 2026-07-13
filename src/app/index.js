@@ -1,5 +1,6 @@
 import loop from "./loop.js"
-import resizeCanvas from "./handleResize.js"
+import config from "../config/config.js"
+import resizeCanvas from "../engine/handleResize.js"
 import loadFonts from "../engine/loaders/loadFonts.js"
 import loadAssets from "../engine/loaders/loadAssets.js"
 import Renderer from "../engine/renderer.js"
@@ -7,6 +8,9 @@ import handleKeyDown from "../engine/handleKeyDown.js"
 import handleKeyUp from "../engine/handleKeyUp.js"
 import Character from "../engine/character/character.js"
 import throttle from "../utils/throttle.js"
+import drawBackground from "./drawBackground.js"
+import state from "../config/state.js"
+import setDprOnDupeCanvas from "../utils/setDprOnDupeCanvas.js"
 
 /** Handle canvas setup */
 window.addEventListener('DOMContentLoaded', async () => {
@@ -27,7 +31,6 @@ window.addEventListener('DOMContentLoaded', async () => {
             { type: 'image', path: './static/assets/opening/02building.png', meta: 'opening' }, 
             { type: 'image', path: './static/assets/opening/01building.png', meta: 'opening' },
             { type: 'spritesheet', path: './static/assets/interiors/room/12.png', meta: 'room_one' },
-            { type: 'spritesheet', path: './static/assets/interiors/room/15.png', meta: 'room_five' },
             { type: 'spritesheet', path: './static/assets/interiors/room/18.png', meta: 'room_two' },
             { type: 'spritesheet', path: './static/assets/interiors/room/19.png', meta: 'room_three' },
             { type: 'spritesheet', path: './static/assets/interiors/room/20.png', meta: 'room_four' },
@@ -36,6 +39,14 @@ window.addEventListener('DOMContentLoaded', async () => {
             { type: 'spritesheet', path: './static/assets/characters/herofem3a.png', meta: 'fem_hero' }
         ] })
     ])
+
+    /** Pre-draw all backgrounds (i.e. gradients) */
+    state.openingBg = drawBackground({
+        colors: config.palette.opening.gradient,
+        dither: true,
+        preRender: true,
+        preCanvas: canvas
+    })
 
     /** Register new character and movement functions */
     const character = new Character({ renderer, atlas: 'masc_hero' })
