@@ -7,6 +7,10 @@ export default {
     },
     palette: {
         opening: {
+            ui: {
+                border_text: '#00FFAA',
+                background: '#007F80'
+            },
             // gradient: [
             //     '#614E72',
             //     '#FF785E',

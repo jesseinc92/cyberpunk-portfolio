@@ -1,7 +1,7 @@
 import spriteAtlas from "../config/spriteAtlas.js"
 import setDprOnDupeCanvas from "../utils/setDprOnDupeCanvas.js"
 
-export default function readSprite({ renderer, atlas, sprite, pos }) {
+export default function readSprite({ renderer, atlas, sprite, pos, scale = { x: 1, y: 1 } }) {
     return (ctx) => {
         const { canvas, temp, tctx } = setDprOnDupeCanvas(ctx)
 
@@ -16,12 +16,16 @@ export default function readSprite({ renderer, atlas, sprite, pos }) {
             anchorY += current.anchor[1]
         }
 
+        const w = current.w * scale.x
+        const h = current.h * scale.y
+
         tctx.drawImage(
             img.img,
             current.x, current.y,
             current.w, current.h,
-            pos.x + anchorX, pos.y + anchorY,
-            current.w, current.h
+            pos.x + anchorX - (w - current.w) / 2, 
+            pos.y + anchorY - (h - current.h) / 2,
+            w, h
         )
 
         ctx.drawImage(

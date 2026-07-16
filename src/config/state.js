@@ -1,5 +1,7 @@
 export default {
-    init: false,
-    openingBg: null,
-    heroBg: null
+    actions: [],
+    transition: false,
+
+    newScene: null,
+    scene: window.sessionStorage.getItem('cyberdevScene') || 'titles'
 }

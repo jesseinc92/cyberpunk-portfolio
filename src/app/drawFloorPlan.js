@@ -6,6 +6,7 @@ import state from "../config/state.js"
 export default function drawFloorPlan({ 
     renderer, 
     character, 
+    charState,
     canvas, 
     ctx, 
     backgroundColor,
@@ -17,7 +18,7 @@ export default function drawFloorPlan({
      * Draw black background
      */
 
-    renderer.addLayer(drawBackground({ color: backgroundColor }))
+    renderer.addLayer(drawBackground({ colors: [backgroundColor] }))
 
     /**
      * Draw floor plan
@@ -28,9 +29,9 @@ export default function drawFloorPlan({
     const yStart = (canvas.clientHeight / 2) - ((shell.length / 2) * TILE_SIZE)
 
     // Set initial position only.
-    if (!state.init) {
+    if (!state[charState]) {
         character.setPosition({ x: xStart + 96, y: yStart + 48 })
-        state.init = true
+        state[charState] = true
     }
 
     for (let y = 0; y < shell.length; y++) {

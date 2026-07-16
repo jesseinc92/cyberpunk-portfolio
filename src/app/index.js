@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             { type: 'spritesheet', path: './static/assets/interiors/room/20.png', meta: 'room_four' },
             { type: 'spritesheet', path: './static/assets/misc/ruin.png', meta: 'ruin' },
             { type: 'spritesheet', path: './static/assets/characters/heromasc1c.png', meta: 'masc_hero' },
-            { type: 'spritesheet', path: './static/assets/characters/herofem3a.png', meta: 'fem_hero' }
+            { type: 'spritesheet', path: './static/assets/characters/herofem3a.png', meta: 'fem_hero' },
         ] })
     ])
 
@@ -58,7 +58,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     /** Handle keyboard controls */
     window.addEventListener("keydown", (e) => handleKeyDown({ e, walkLeft, walkUp, walkRight, walkDown }))
-    window.addEventListener("keyup", (e) => handleKeyUp({ e, character }))
+    window.addEventListener("keyup", (e) => handleKeyUp({ e, character, state }))
     
     /** Begin gameplay loop */
     resizeCanvas({ canvas, ctx })

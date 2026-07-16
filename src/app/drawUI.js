@@ -1,19 +1,30 @@
 import config from "../config/config.js"
+import state from "../config/state.js"
+import readSprite from "../engine/readSprite.js"
 
-export default function drawUI({ text = '', color = config.palette.ui }) {
+export default function drawUI({ 
+    text = '',
+    size = 24,
+    pos = { x: 0, y: 0 },
+    mouse = true,
+    actionKey = null,
+    actionFn = null
+}) {
     return (ctx) => {
-        ctx.save()
-
         const { canvas } = ctx
 
-        ctx.font = '24px Toxigenesis, sans-serif'
-        ctx.fillStyle = color
+        /** Text */
+        ctx.font = `${size}px Toxigenesis, sans-serif`
+        ctx.fillStyle = config.palette.opening.ui.border_text
         ctx.fillText(
             text,
-            canvas.clientWidth / 2,
-            (canvas.clientHeight / 3) * 2
+            pos.x,
+            pos.y
         )
 
-        ctx.restore()
+        state.actions.push({
+            actionKey,
+            actionFn
+        })
     }
 }

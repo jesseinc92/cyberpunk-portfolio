@@ -1,34 +1,26 @@
+import state from "../config/state.js"
 import config from "../config/config.js"
-import drawOpening from "./drawOpening.js"
-import titleScreen from "./titleScreen.js"
-import drawFloorPlan from "./drawFloorPlan.js"
-import readSprite from "../engine/readSprite.js"
+import fade from "../engine/transitions/fade.js"
+import activeScene from "../engine/activeScene.js"
 
 export default function animationLoop({ renderer, character = null, canvas, ctx, time = 0 }) {
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
 
-    // All game stuff here
-    if (time > config.script.opening.start && time < config.script.opening.end) {
-        drawOpening({ time, renderer, canvas, ctx })
-    }
+    activeScene({
+        renderer,
+        character,
+        canvas,
+        ctx,
+        time,
+        state,
+        config
+    })
 
-    // // On animation end, display title w/ start button
-    // // Remain until user action
-    if (time > config.script.opening.end) {
-        titleScreen({ renderer, canvas, ctx })
+    if (state.transition) {
+        renderer.addLayer(fade({ time, state, timing: 2.5 }))
     }
-
-    // drawFloorPlan({ 
-    //     renderer, 
-    //     character, 
-    //     canvas, 
-    //     ctx,
-    //     shell: config.living_room.shell, // config.bedroom.shell,
-    //     contents: config.living_room.contents, // config.bedroom.contents 
-    // })
 
     // Handle collisions
-    // character.render() // Position character
     renderer.render() // Always run after all changes have been recorded and ready for draw
 
     requestAnimationFrame((time) => animationLoop({ renderer, character, canvas, ctx, time }))
