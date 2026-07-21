@@ -18,10 +18,10 @@ export default function titleScreen({ renderer, canvas, ctx, time }) {
         text: 'Start (F)', 
         actionKey: 'f', 
         actionFn: (state) => {
-            state.newScene = 'livingRoom'
+            state.newScene = 'bedroom'
             state.transitionStart = time
             state.transition = true
-            window.sessionStorage.setItem('cyberdevScene', 'livingRoom')
+            window.sessionStorage.setItem('cyberdevScene', 'bedrooom')
         },
         pos: { x: canvas.clientWidth / 2, y: 2 * canvas.clientHeight / 3 } 
     }))

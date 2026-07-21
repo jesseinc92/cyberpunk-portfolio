@@ -23,8 +23,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     /** Load all fonts and assets */
     await Promise.allSettled([
         loadFonts([
-            'nerdropol', 
-            'toxigenesis'
+            { font: 'nerdropol', type: 'otf' },
+            { font: 'toxigenesis', type: 'otf' },
+            { font: 'vt323', type: 'ttf' }
         ]),
         loadAssets({ renderer, assets: [
             { type: 'image', path: './static/assets/opening/03building.png', meta: 'opening' },

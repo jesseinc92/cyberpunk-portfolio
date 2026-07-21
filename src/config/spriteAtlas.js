@@ -83,7 +83,14 @@ export default {
     },
     room_four: {
         sprites: [
-            { name: 'servers', x: 2, y: 7, anchor: [0, -60] }
+            { 
+                name: 'servers', 
+                x: 192, 
+                y: 672, 
+                w: 96,
+                h: 96,
+                anchor: [0, -60]
+            }
         ]
     },
     ruin: {

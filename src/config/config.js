@@ -1,9 +1,14 @@
 export default {
     script: {
-        opening: {
+        titles: {
             start: 0,
             end: 15000
-        }
+        },
+        exposition: [
+            "Wh...wha...where am I? My head. It's pounding.",
+            "The last thing I remember is NetWatch hacking my netrun.",
+            "...This isn't my computer"
+        ]
     },
     palette: {
         opening: {
@@ -131,18 +136,34 @@ export default {
     bedroom: {
         shell: [
             [ [], ['room_two', 'wall'], ['room_two', 'wall'], ['room_one', 'window-1'], ['room_two', 'wall'], ['room_two', 'wall'] ],
-            [ [], ['room_two', 'circuit-floor'], ['room_one', 'floor'], ['room_one', 'floor'], ['room_one', 'floor'], ['room_one', 'floor'] ],
+            [ ['room_two', 'wall'], ['room_two', 'circuit-floor'], ['room_two', 'circuit-floor'], ['room_one', 'floor'], ['room_one', 'floor'], ['room_one', 'floor'] ],
             [ ['room_one', 'floor'], ['room_one', 'floor'], ['room_one', 'floor'], ['room_one', 'floor'], ['room_one', 'floor'], ['room_one', 'floor'] ],
             [ [], ['room_one', 'floor'], ['room_one', 'floor'], ['room_one', 'floor'], ['room_one', 'floor'], ['room_one', 'floor'] ],
             [ [], ['room_one', 'floor'], ['room_one', 'floor'], ['room_one', 'floor'], ['room_one', 'floor'], ['room_one', 'floor'] ],
         ],
         contents: [
-            
+            {
+                atlas: 'room_four',
+                sprite: 'servers',
+                grid: [1, 1],
+                collision: [
+                    ['solid', 'solid'],
+                    ['solid', 'solid']
+                ]
+            },
+            {
+                atlas: 'room_four',
+                sprite: 'servers',
+                grid: [2, 1],
+                collision: [
+                    ['solid', 'solid'],
+                    ['solid', 'solid']
+                ]
+            }
         ],
     },
     bathroom: {
         shell: [],
         contents: [],
-        collision: []
     }
 }

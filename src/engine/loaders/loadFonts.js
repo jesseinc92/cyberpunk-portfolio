@@ -6,8 +6,8 @@ export default async function loadFonts(fonts) {
 
 async function loadFont(f) {
     const font = new FontFace(
-        f,
-        `url("./static/fonts/${f}.otf")`
+        f.font,
+        `url("./static/fonts/${f.font}.${f.type}")`
     )
 
     await font.load()
