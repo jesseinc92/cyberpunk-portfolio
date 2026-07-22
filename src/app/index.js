@@ -35,6 +35,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             { type: 'spritesheet', path: './static/assets/interiors/room/18.png', meta: 'room_two' },
             { type: 'spritesheet', path: './static/assets/interiors/room/19.png', meta: 'room_three' },
             { type: 'spritesheet', path: './static/assets/interiors/room/20.png', meta: 'room_four' },
+            { type: 'spritesheet', path: './static/assets/interiors/room/15.png', meta: 'room_five' },
             { type: 'spritesheet', path: './static/assets/misc/ruin.png', meta: 'ruin' },
             { type: 'spritesheet', path: './static/assets/characters/heromasc1c.png', meta: 'masc_hero' },
             { type: 'spritesheet', path: './static/assets/characters/herofem3a.png', meta: 'fem_hero' },

@@ -8,6 +8,13 @@ export default {
                 w: 144,
                 h: 96,
                 anchor: [0, -20]
+            },
+            {
+                name: 'blue-plant',
+                x: 384,
+                y: 672,
+                w: 48,
+                h: 96
             }
         ]
     },
@@ -19,10 +26,6 @@ export default {
                 y: 384,
                 w: 96,
                 h: 96
-            },
-            {
-                name: 'computer',
-                anchor: [0, 24]
             },
             {
                 name: 'fridge',
@@ -47,9 +50,7 @@ export default {
                 w: 96,
                 h: 96,
                 anchor: [0, 24]
-            },
-            { name: 'bed', x: 7, y: 2 },
-            { name: 'desk', x: 1, y: 1.5, anchor: [0, 35] }
+            }
         ]
     },
     room_three: {
@@ -78,7 +79,21 @@ export default {
                 h: 96,
                 anchor: [0, -15]
             },
-            { name: 'fish-tank', x: 1.5, y: 3 },
+            {
+                name: 'bed',
+                x: 384,
+                y: 144,
+                w: 144,
+                h: 144,
+                anchor: [0, -48]
+            },
+            { 
+                name: 'fish-tank',
+                x: 144,
+                y: 288,
+                w: 96,
+                h: 96
+            },
         ]
     },
     room_four: {
@@ -90,6 +105,17 @@ export default {
                 w: 96,
                 h: 96,
                 anchor: [0, -60]
+            }
+        ]
+    },
+    room_five: {
+        sprites: [
+            {
+                name: 'computer',
+                x: 624,
+                y: 624,
+                w: 144,
+                h: 144
             }
         ]
     },

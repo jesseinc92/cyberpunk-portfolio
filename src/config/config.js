@@ -159,6 +159,40 @@ export default {
                     ['solid', 'solid'],
                     ['solid', 'solid']
                 ]
+            },
+            {
+                atlas: 'room_three',
+                sprite: 'bed',
+                grid: [4.25, 1],
+                collision: [
+                    ['solid', 'solid', 'solid', 'solid'],
+                    [null, 'solid', 'solid', null],
+                    [null, 'solid', 'solid', null]
+                ]
+            },
+            {
+                atlas: 'room_five',
+                sprite: 'computer',
+                grid: [1, 3],
+                collision: [
+                    ['solid', null, 'solid'],
+                    ['solid', 'solid', 'special'],
+                    ['solid', 'special', 'special']
+                ]
+            },
+            {
+                atlas: 'room_three',
+                sprite: 'fish-tank',
+                grid: [4, 4],
+                collision: [
+                    ['solid', 'solid'],
+                    ['solid', 'solid']
+                ]
+            },
+            {
+                atlas: 'room_one',
+                sprite: 'blue-plant',
+                grid: [5, 4]
             }
         ],
     },
